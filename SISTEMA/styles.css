@@ -1,0 +1,195 @@
+/* Estilos gerais */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #000; /* Fundo preto */
+    color: #fff; /* Texto branco */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    overflow: auto; /* Permitir rolagem se necessário */
+}
+
+header {
+    background: #111; /* Fundo cinza escuro para o cabeçalho */
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra escura */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.logo img {
+    max-width: 60px; /* Tamanho ajustado da logo */
+    height: auto; /* Manter proporção da imagem */
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em; /* Tamanho da fonte ajustado */
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    width: 90%;
+    max-width: 1200px; /* Largura máxima confortável */
+    padding: 20px;
+    background: #222; /* Fundo cinza escuro para contraste com o texto */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Sombra escura */
+    text-align: center;
+    margin-top: 70px; /* Margem superior para evitar sobreposição com o cabeçalho */
+}
+
+section.choice {
+    margin-bottom: 40px;
+}
+
+section.choice h2 {
+    border-bottom: 2px solid #fff; /* Linha de baixo branca */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #fff; /* Texto branco */
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1em;
+    color: #000;
+    background: #ff6600; /* Cor de fundo laranja */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background: #cc5200; /* Cor de fundo laranja escuro */
+    transform: scale(1.05); /* Aumenta o botão ao passar o mouse */
+}
+
+/* Estilos para os horários */
+#timeSlots {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+#timeSlots li {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background: #4CAF50; /* Cor verde para horários disponíveis */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#timeSlots li:hover {
+    background: #45a049; /* Verde escuro para hover */
+    transform: scale(1.05); /* Aumenta o botão ao passar o mouse */
+}
+
+#timeSlots li.booked {
+    background: #f44336; /* Cor vermelha para horários ocupados */
+    cursor: not-allowed;
+    opacity: 0.7; /* Tornar os horários ocupados menos visíveis */
+}
+
+/* Botão de agendamento */
+#bookingButton {
+    display: none; /* Inicialmente escondido */
+    margin-top: 20px;
+}
+
+#bookingButton.active {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background: #ff6600; /* Cor de fundo laranja */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#bookingButton.active:hover {
+    background: #cc5200; /* Cor de fundo laranja escuro */
+    transform: scale(1.05); /* Aumenta o botão ao passar o mouse */
+}
+
+/* Ajustes para responsividade */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .logo img {
+        max-width: 50px; /* Logo menor em dispositivos móveis */
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li a {
+        font-size: 1.2em;
+    }
+
+    #timeSlots li {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+
+    #timeSlots li {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+}
