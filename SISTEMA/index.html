@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Barbearia</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Adicionando estilo para o menu suspenso */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            text-align: left;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #575757;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#servicos">SERVIÇOS</a></li>
+                    <li><a href="agendamento.html">AGENDAMENTO</a></li>
+                    <li><a href="modelos.html">MODELOS</a></li>
+                    <li><a href="parceiros.html">PARCEIROS</a></li>
+                    <li><a href="videos.html">VÍDEOS</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="choice">
+                <h2>Escolha um serviço</h2>
+                <div class="dropdown">
+                    <button class="btn dropbtn">Escolha um serviço</button>
+                    <div class="dropdown-content">
+                        <a href="corte.html">Agendar Corte de Cabelo</a>
+                        <a href="quimica.html">Agendar Química</a>
+                    </div>
+                </div>
+            </section>
+            <section id="bookedAppointments">
+                <h2>Agendamentos</h2>
+                <ul id="bookedList">
+                    <!-- Agendamentos serão adicionados aqui pelo JavaScript -->
+                </ul>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

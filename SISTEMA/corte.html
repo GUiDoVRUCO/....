@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Corte de Cabelo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Agendamento de Corte de Cabelo</h1>
+            <a href="index.html" class="btn back">Voltar</a>
+        </header>
+        <main>
+            <section id="schedule">
+                <h2>Horários Disponíveis</h2>
+                <ul id="timeSlots">
+                    <!-- Horários serão adicionados aqui pelo JavaScript -->
+                </ul>
+            </section>
+            <section id="bookingForm">
+                <h2>Agendar Horário</h2>
+                <label for="clientName">Nome:</label>
+                <input type="text" id="clientName" placeholder="Seu nome">
+                <button id="bookingButton" onclick="bookTime()">Agendar</button>
+            </section>
+            <section id="adminSection">
+                <h2>Administração</h2>
+                <button onclick="resetBookings()">Resetar Todos os Agendamentos</button>
+                <h3>Agendamentos Atuais</h3>
+                <ul id="adminBookings">
+                    <!-- Agendamentos serão adicionados aqui pelo JavaScript -->
+                </ul>
+            </section>
+        </main>
+    </div>
+    <script src="script-corte.js"></script>
+</body>
+</html>
