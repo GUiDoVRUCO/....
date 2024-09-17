@@ -8,8 +8,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-    overflow: auto; /* Permitir rolagem se necessário */
+    min-height: 100vh; /* Garante que o conteúdo ocupe pelo menos a altura total da tela */
+    overflow-x: hidden; /* Impede rolagem horizontal */
 }
 
 header {
@@ -21,16 +21,10 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-}
-
-.logo img {
-    max-width: 60px; /* Tamanho ajustado da logo */
-    height: auto; /* Manter proporção da imagem */
-}
-
-nav {
-    margin-top: 10px;
+    position: fixed; /* Mantém o cabeçalho fixo no topo */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
 }
 
 nav ul {
@@ -64,6 +58,7 @@ main {
     box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Sombra escura */
     text-align: center;
     margin-top: 70px; /* Margem superior para evitar sobreposição com o cabeçalho */
+    margin-bottom: 20px; /* Margem inferior para evitar sobreposição com o rodapé */
 }
 
 section.choice {
@@ -77,21 +72,37 @@ section.choice h2 {
     color: #fff; /* Texto branco */
 }
 
-.btn {
-    display: inline-block;
+/* Botão de escolha de serviço */
+.dropbtn {
+    background-color: #ff6600; /* Laranja */
+    color: white;
     padding: 10px 20px;
-    margin: 10px;
     font-size: 1em;
-    color: #000;
-    background: #ff6600; /* Cor de fundo laranja */
-    text-decoration: none;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
 }
 
-.btn:hover {
-    background: #cc5200; /* Cor de fundo laranja escuro */
+.dropbtn:hover {
+    background-color: #cc5200; /* Laranja escuro */
     transform: scale(1.05); /* Aumenta o botão ao passar o mouse */
+}
+
+.dropdown-content {
+    background-color: #333;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #444;
+}
+
+.dropdown-content a:hover {
+    background-color: #575757;
 }
 
 /* Estilos para os horários */
@@ -132,26 +143,44 @@ section.choice h2 {
     opacity: 0.7; /* Tornar os horários ocupados menos visíveis */
 }
 
-/* Botão de agendamento */
+/* Estilo para o botão "Agendar" */
 #bookingButton {
     display: none; /* Inicialmente escondido */
-    margin-top: 20px;
-}
-
-#bookingButton.active {
-    display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 1em;
     color: #fff;
     background: #ff6600; /* Cor de fundo laranja */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+#bookingButton.active {
+    display: inline-block;
 }
 
 #bookingButton.active:hover {
     background: #cc5200; /* Cor de fundo laranja escuro */
+    transform: scale(1.05); /* Aumenta o botão ao passar o mouse */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Sombra para efeito de profundidade */
+}
+
+/* Botão de resetar agendamentos */
+#resetButton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background: #ff0000; /* Cor de fundo vermelho */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#resetButton:hover {
+    background: #cc0000; /* Cor de fundo vermelho escuro */
     transform: scale(1.05); /* Aumenta o botão ao passar o mouse */
 }
 
@@ -163,10 +192,6 @@ section.choice h2 {
         padding: 20px;
     }
 
-    .logo img {
-        max-width: 50px; /* Logo menor em dispositivos móveis */
-    }
-
     nav ul {
         flex-direction: column;
         gap: 10px;
@@ -176,8 +201,17 @@ section.choice h2 {
         font-size: 1.2em;
     }
 
+    main {
+        width: 95%;
+        margin-top: 100px; /* Ajuste para o cabeçalho fixo */
+    }
+
     #timeSlots li {
         padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    #clientName {
         font-size: 0.9em;
     }
 
@@ -197,5 +231,9 @@ section.choice h2 {
         padding: 6px 12px;
         font-size: 0.8em;
     }
-}
 
+    main {
+        width: 100%;
+        margin-top: 120px; /* Ajuste para o cabeçalho fixo */
+    }
+}

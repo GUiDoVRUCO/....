@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendamento de Corte de Cabelo</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Firebase Initialization Script -->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDb5kYTToDjPsEGy4Qb3yerbMYvAMJYWuM",
+        authDomain: "chocolate-b7e71.firebaseapp.com",
+        databaseURL: "https://chocolate-b7e71-default-rtdb.firebaseio.com",
+        projectId: "chocolate-b7e71",
+        storageBucket: "chocolate-b7e71.appspot.com",
+        messagingSenderId: "88101484580",
+        appId: "1:88101484580:web:7751cc1f944f3cd46800b1",
+        measurementId: "G-X3NGSL0MTZ"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
 </head>
 <body>
     <div class="container">
@@ -23,11 +45,12 @@
                 <h2>Agendar Horário</h2>
                 <label for="clientName">Nome:</label>
                 <input type="text" id="clientName" placeholder="Seu nome">
+                <p id="scheduleText">Agendar</p>
                 <button id="bookingButton" onclick="bookTime()">Agendar</button>
             </section>
             <section id="adminSection">
                 <h2>Administração</h2>
-                <button onclick="resetBookings()">Resetar Todos os Agendamentos</button>
+                <button id="resetButton" onclick="resetBookings()">Resetar Todos os Agendamentos</button>
                 <h3>Agendamentos Atuais</h3>
                 <ul id="adminBookings">
                     <!-- Agendamentos serão adicionados aqui pelo JavaScript -->
